@@ -5,11 +5,11 @@ Requires=docker.service
 
 [Service]
 TimeoutStartSec=0
-ExecStartPre=-/usr/bin/docker kill hello-world
-ExecStartPre=-/usr/bin/docker rm hello-world
-ExecStartPre=/usr/bin/docker pull busybox
-ExecStart=/usr/bin/docker run --name hello-world busybox /bin/sh -c "while true; do echo Hello World; sleep 1; done"
-ExecStop=-/usr/bin/docker rm -f hello-world
+ExecStartPre=-/usr/bin/docker kill hexsaw/logactaesque-dice
+ExecStartPre=-/usr/bin/docker rm hexsaw/logactaesque-dice
+ExecStartPre=/usr/bin/docker pull hexsaw/logactaesque-dice
+ExecStart=/usr/bin/docker run -p 8080:8080 hexsaw/logactaesque-dice
+ExecStop=-/usr/bin/docker rm -f hexsaw/logactaesque-dice
 
 [Install]
 WantedBy=multi-user.target
