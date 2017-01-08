@@ -13,3 +13,6 @@ ExecStop=-/usr/bin/docker rm -f hexsaw/logactaesque-dice
 
 [Install]
 WantedBy=multi-user.target
+
+[X-Fleet]
+Global=true
